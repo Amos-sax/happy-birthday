@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+</head>
+<style>
+
+    body {
+    background-image: url(./background.jpg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid #e75480;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+    background: transparent;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    text-align: center;
+    margin: 30px;
+}
+
+h1 {
+    color: #e75480;
+    margin-bottom: 0.5rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+p {
+    display: block;
+    color: #444;
+    font-size: 1.2rem;
+}
+
+.heart {
+    color: #e75480;
+    font-size: 2rem;
+    animation: pulse 1s infinite;
+}
+
+#surprise {
+    min-height: 100vh;
+    background: #34495e6c;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 80px;
+    border: #feffff;
+}
+
+.Abigail {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    min-height: 100vh;
+    align-content: center;
+    align-items: center;
+    margin: 8rem 0rem;
+    background-color: #0f0e0e7e;
+    border-radius: 80px;
+    padding: 1rem;
+    border: #feffff;
+}
+
+a {
+    align-items: center;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+img {
+    align-content: center;
+    width: 250px;
+    border-radius: 20%;
+    margin-bottom: 1rem;
+    transition: all 0.4s;
+}
+
+img:hover {
+    transform: scale(1.2);
+}
+
+/* Button styles */
+button, .button {
+    background: linear-gradient(90deg, #e75480 0%, #ffb6c1 100%);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(231, 84, 128, 0.15);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover, .button:hover {
+    background: linear-gradient(90deg, #d45a7f 0%, #ffb6c1 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(231, 84, 128, 0.25);
+}
+
+button:active, .button:active {
+    background: #c44f7c;
+    transform: scale(0.98);
+}
+
+button:focus, .button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(231, 84, 128, 0.5);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1);}
+    50% { transform: scale(1.2);}
+    100% { transform: scale(1);}
+}
+
+@media (max-width: 600px) {
+    .card { padding: 1rem 2rem; }
+    .card img { width: 80px; }
+    h1 { font-size: 1.5rem; }
+    p { font-size: 1rem; }
+}
+@media (max-width: 400px) {
+    .card { padding: 1rem 1.5rem; }
+    .card img { width: 80px; }
+    h1 { font-size: 1.2rem; }
+    p { font-size: 0.9rem; }
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #2c3e50, #34495e);
+        color: #ecf0f1;
+    }
+    .card {
+        background: #1f43689a;
+        box-shadow: 0 40px 24px rgba(0,0,0,0.2);
+    }
+    h1 { color: #e67e22; }
+    p { color: #bdc3c7; }
+}
+@media (prefers-color-scheme: light) {
+    body {
+        background-image: url(./background.jpg);
+        color: #333;
+    }
+    .card {
+        background: rgb(197, 178, 178);
+        box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    }
+    h1 { color: #e75480; }
+    p { color: #444; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .heart { animation: none; }
+    button, .button { transition: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .heart { animation: pulse 1s infinite; }
+    button, .button { transition: background 0.3s, transform 0.2s, box-shadow 0.3s; }
+}
+
+/* Additional styles for the card */
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}   
+header {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);   
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid #e75480;
+    transition: background 0.3s, box-shadow 0.3s;
+    &:hover {
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid #e75480;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+form:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    
+}
+</style>
+<body>
+    <div class="header" style="display:flex;">
+        <h1>Happy Birthday, Abigail!</h1>
+        <p>Celebrating you today and always! 🎉</p>
+        <p>From CEO <strong>KINGSMEN</strong></p>
+        <button onclick="showcard()" style="padding: 0.5rem 1.5rem; border-radius: 10px; background: #e75480; color: white; border: none; font-size: 1rem; cursor: pointer;">
+               <a href="#card"> click for messages!</a>
+            </button>
+
+    </div>
+
+    <div class="card" id="card" style="display:none;">
+        <img src="./Abigail.jpg" alt="Happy Birthday">
+        <h1>Happy Birthday, Love!</h1>
+        <p>
+            Wishing the most wonderful birthday to the most amazing girlfriend!<br>
+            You light up my world every single day.<br>
+            I hope your day is filled with love, laughter, and all your favorite things.<br>
+            <span class="heart">♥</span>
+        </p>
+
+        <audio controls>
+            <source src="./emotional-piano-music-256262.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <div>
+            <button onclick="showSurprise()" style="padding: 0.5rem 1.5rem; border-radius: 10px; background: #e75480; color: white; border: none; font-size: 1rem; cursor: pointer;">
+               <a href="#surprise"> Click for a Surprise!</a>
+            </button>
+
+                </div>
+                    </div>
+
+            <br> <br>
+
+            <div id="surprise" style="display:none; margin-top:1rem; font-size:1.2rem; color:#ee1657;">
+                <img src="./A.jpg" alt="img">
+                <p>
+                    Another year has passed for you, sweetheart;<br>
+                    It's time to cut the cake and celebrate.<br>
+                    And once again, my love, I start to think<br>
+                    Of things about you I appreciate.<br>
+                    <br>
+                    It means so much to have you in my life;<br>
+                    Your loving care fills up my days with pleasure.<br>
+                    Your warm and giving nature helps create<br>
+                    Close, special times together that I treasure.<br>
+                    <br>
+                    I live within a safe and steady world,<br>
+                    Because you love me unconditionally.<br>
+                    Your easygoing ways mean that I'm blessed<br>
+                    With peace and joy and blissful harmony.<br>
+                    <br>
+                    To me your birthday is a precious day;<br>
+                    I hope it brings you joy in every way.<br>
+                </p>
+                <div>
+                    <button onclick="showA()" style="padding: 0.5rem 1.5rem; border-radius: 10px; background: #e75480; color: white; border: none; font-size: 1rem; cursor: pointer;">
+                        Click for A
+                    </button>
+                </div>
+            </div>
+
+            <div class="Abigail" id="A">
+                <img src="./beautiful.jpg" alt="img">
+                <h2>A stands for</h2>
+                <p>
+                    Adorable, Amazing, Affectionate, Adventurous, Artistic, Authentic, Attractive, Awesome, Ambitious, Appreciative, Astounding, Alluring, Affable, Administrative, Assertive, Angelic, Adaptable, Appreciative, Attentive, Amiable, Altruistic, Adventurous, Assertive, Astute, Accomplished, Admirable, Agile, Assertive, Appreciative, Assertive, Artistic, Authentic, Affectionate, and Always inspiring!<br>
+                    You embody all these qualities and so much more, making you truly special and unique in person.<br>
+                </p>
+                <button onclick="showB()">Click for <strong>B</strong></button>
+             </div>
+
+
+             <div class="Abigail" id="B">
+                <img src="./brilliant.jpg" alt="">
+                <h2>B stands for</h2>
+                <p>
+                    Beautiful, Brilliant, Bold, Benevolent, Bright, Balanced, Brave, Bubbly, Blissful, Beloved, Beneficial, Big-hearted, Blessed, Blossoming, and Best friend!<br>
+                    You bring boundless joy and brightness into my life,<br>
+                    and I am so grateful for every beautiful moment we share together.<br>
+                </p>
+                <button onclick="showi()">Click for <strong>I</strong></button>
+             </div>
+
+
+
+ <div class="Abigail" id="i">
+    <img src="./for l.jpg" alt="img">
+                        <h2>I stands for</h2>
+    <p>
+        Inspiring, Intelligent, Irresistible, Imaginative, Independent, Incredible, Insightful, Intuitive, Inviting, Idealistic, Illuminating, Ingenious, and Irreplaceable!<br>
+        You inspire me every day with your intelligence and creativity,<br>
+        and I feel so lucky to have someone as incredible as you in my life.<br>
+    </p>
+    <button onclick="showG()">Click for <strong>G</strong></button>
+ </div>
+
+
+
+ <div class="Abigail" id="G">
+
+    <img src="./beautiful.jpg" alt="img">
+     <h2>G stands for</h2>
+    <p>
+        Gorgeous, Generous, Gracious, Genuine, Gifted, Gentle, Glowing, Grounded, Good-hearted, Great, Gleeful, Gallant, and Guiding!<br>
+        Your generosity and grace make you truly one of a kind,<br>
+        and your goodness lights up every room you enter.<br>
+        I am grateful for your guidance, your laughter, and your love every single day.<br>
+    </p>
+    <button onclick="showl()">Click for <strong>L</strong></button>
+     </div>
+
+    <div class="Abigail" id="l">
+
+       <img src="./l.jpg" alt="img">
+       <h2>L stands for</h2>
+       <p>
+          Irresistible:<br>
+          Every moment with you draws me in deeper,<br>
+          making it impossible to resist your charm,<br>
+          your laughter, and the warmth of your love.<br>
+          You are the heartbeat that makes my world come alive.<br>
+       </p>
+       <button onclick="showvideo()">Click to <strong>watch video by Amos-sax</strong></button>
+    </div>
+
+
+    <div class="Abigail" id="video" style="display: none; width: 100%; text-align: center; margin-top: 20px;">
+        <h2>Watch this special birthday video!</h2>
+    <video controls>
+        <source src="./birthday video.mp4" type="video/mp4">
+        Your browser does not support the video tag.<br>
+    </video>
+    <button onclick="showN()">Click for last message</button>
+    </div>
+
+
+    <div class="Abigail" id="N">
+        <p>
+            There is a big difference between falling in love and being in love.<br>
+            There is a big difference between infatuation and love.<br>
+            Sometimes it is just a form of love to talk to someone you might have nothing in common with and still be fascinated.<br>
+            But one thing I am sure of is that love is a beautiful journey that we embark on together<br>
+            and <strong>Cuddling with you will be perfect now</strong>.<br> Lord, our troubles
+Are so great,
+We don't know what to do;
+The price for our
+Iniquity
+Is finally coming due.
+
+The world is crumbling
+All about;
+No safe place can be found.
+Right is wrong,
+Wrong is right;
+The change is quite profound.
+
+Lord, we need
+Your guiding light
+To lead us out of here;
+We'll focus on
+Your Word, and prayer,
+To take away our fear.
+
+Temptations of
+This dying world
+We'll rule out and let go;
+Give our burdens
+All to you,
+Shed all worldly woe.
+
+That's how we'll
+Get through this, Lord,
+Fixed on heaven above,
+Assured of your
+protection, help,
+And everlasting love.
+
+This Christian poem tells of Jesus' never-failing support for us. It's a Christian inspirational poem that's also a Christian rhyme.
+
+You’re Always There for Me
+
+When the world comes crashing in
+And chaos rules my mind,
+I turn my heart to you, Lord,
+And pure, sweet peace I find.
+
+You lift me out of trouble
+You comfort me in pain;
+You nourish, heal and cleanse me,
+Like cool, refreshing rain.
+
+In times of joy and bliss,
+When things are going right,
+You lift me even higher,
+And fill me with delight.
+
+You listen to my prayers;
+You hear my every plea;
+I’m safe because I know
+You’re always there for me.
+
+        </p>
+        <br><br><br>
+        <!-- Message Box Section -->
+<div class="Abigail" id="message-box" style="display: flex; flex-direction: column; align-items: center; margin: 2rem 0;">
+    <h2>Leave a Birthday Message for Abigail</h2>
+    <form action="https://formspree.io/f/myzjbjqz" method="POST" style="width: 100%; max-width: 400px;">
+        <textarea name="message" rows="5" placeholder="Type your message here..." required style="width: 100%; border-radius: 10px; padding: 1rem; font-size: 1rem; margin-bottom: 1rem;"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+    </div>
+    <!-- Confetti animation -->
+    <canvas id="confetti" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999;"></canvas>
+
+    <script>// Birthday Project JavaScript Code
+
+alert("Hello! Good day! Today is Abigail's birthday!");
+
+// Access control: prevent user access if "boyfriend" is entered
+const name = prompt('What is your name?');
+const relation = prompt('Who are you to Abigail?');
+
+if (relation && relation.trim().toLowerCase() === "boyfriend") {
+    alert("You are not recognised as her boyfriend and you have limited access to this page. and kindely note that a copy of your entry has been sent to Abigail's boyfriend.");
+    throw new Error("Access denied"); // Stop script execution
+} else if (name && relation) {
+    alert('welcome ' + name + ', you are recognised as Abigail\'s ' + relation + ' feel free to read through and dont 4get to leave message for Abigail happy reading!');
+} else {
+    alert('Incorrect entry');
+}
+
+// Show birthday message if element exists
+document.addEventListener("DOMContentLoaded", function() {  
+    const msg = document.getElementById("birthday-message");
+    if (msg) msg.style.display = "block";
+});
+
+// Helper to hide all sections
+function hideAllSections() {
+    document.querySelectorAll('.Abigail').forEach(el => el.style.display = 'none');
+}
+
+// Section show functions with auto-scroll
+function showheader() {
+    hideAllSections();
+    const el = document.querySelector('.header');
+    if (el) {   
+        el.style.display = 'flex';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });          
+    }
+}
+
+
+function showcard() {
+    hideAllSections(); 
+    const el = document.getElementById('card');
+    if (el) {
+        el.style.display = 'flex';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+function showSurprise() {
+    hideAllSections();
+    const el = document.getElementById('surprise');
+    if (el) {
+        el.style.display = 'flex';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+function showA() {
+    hideAllSections();
+    const el = document.getElementById('A');
+    if (el) {
+        el.style.display = 'flex';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+function showB() {
+    hideAllSections();
+    const el = document.getElementById('B');
+    if (el) {
+        el.style.display = 'flex';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+function showi() {
+    hideAllSections();
+    const el = document.getElementById('i');
+    if (el) {
+        el.style.display = 'flex';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+function showG() {
+    hideAllSections();
+    const el = document.getElementById('G');
+    if (el) {
+        el.style.display = 'flex';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+} 
+function showl() {
+    hideAllSections();
+    const el = document.getElementById('l');
+    if (el) {
+        el.style.display = 'flex';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+}
+function showvideo() {
+    hideAllSections();
+    const el = document.getElementById('video');
+    if (el) {
+        el.style.display = 'flex';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+function showN() {
+    hideAllSections();
+    const el = document.getElementById('N');
+    if (el) {
+        el.style.display = 'flex';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+// Heart animation
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'love-heart';
+    heart.innerHTML = '♥';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (24 + Math.random() * 32) + 'px';
+    heart.style.color = ['#e75480', '#ee1657', '#ff69b4', '#ff1493'][Math.floor(Math.random()*4)];
+    heart.style.top = '100vh';
+    heart.style.animationDuration = (6 + Math.random() * 4) + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 9000);
+}
+setInterval(createHeart, 600);
+
+// Confetti animation
+const canvas = document.getElementById('confetti');
+const ctx = canvas.getContext('2d');
+let W = window.innerWidth, H = window.innerHeight;
+canvas.width = W; canvas.height = H;
+let particles = [];
+for(let i=0;i<200;i++){
+    particles.push({
+        x: Math.random()*W,
+        y: Math.random()*H,
+        r: Math.random()*6+2,
+        d: Math.random()*200,
+        color: `hsl(${Math.random()*365},80%,60%)`,
+        tilt: Math.random()*10-20
+    });
+}
+function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(let i=0;i<particles.length;i++){
+        let p = particles[i];
+        ctx.beginPath();
+        ctx.lineWidth = p.r;
+        ctx.strokeStyle = p.color;
+        ctx.moveTo(p.x + p.tilt + p.r/5, p.y);
+        ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r/5);
+        ctx.stroke();
+    }
+    update();
+}
+let angle = 0;
+function update(){
+    angle += 0.01;
+    for(let i=0;i<particles.length;i++){
+        let p = particles[i];
+        p.y += Math.cos(angle + p.d) + 1 + p.r/2;
+        p.x += Math.sin(angle) * 2;
+        if(p.x > W+20 || p.x < -20 || p.y > H){
+            p.x = Math.random()*W;
+            p.y = -10;
+        }
+    }
+}
+setInterval(draw, 10);
+window.addEventListener('resize', () => {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+});
+
+// Smooth background shuffle
+function shuffleBackground() {
+    const backgrounds = [
+        "url('./Abigail.jpg')",
+        "url('./Brilliant.jpg')",
+        "url('./A.jpg')",
+        "url('./for l.jpg')",
+    ];
+    document.body.style.transition = "background-image 0.5s ease, opacity 0.5s ease";
+    document.body.style.opacity = '0.3';
+    setTimeout(() => {
+        const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+        document.body.style.backgroundImage = randomBg;
+        document.body.style.opacity = '1';
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
+    }, 400);
+}
+shuffleBackground();
+setInterval(shuffleBackground, 10000);
+
+// Leave a Birthday Message button functionality
+function showElement(id) {
+    hideAllSections();
+    const el = document.getElementById(id);
+    if (el) {
+        el.style.display = 'flex';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+</script>
+</body>
+</html>
