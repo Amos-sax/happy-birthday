@@ -247,6 +247,8 @@ form:hover {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     
 }
+
+
 </style>
 <body>
     <div class="header" style="display:flex;">
@@ -269,14 +271,14 @@ form:hover {
             <span class="heart">♥</span>
         </p>
 
-        <audio controls>
+        <audio controls autoplay loop style="width: 100%; margin-top: 1rem;">
             <source src="./emotional-piano-music-256262.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
 
         <div>
             <button onclick="showSurprise()" style="padding: 0.5rem 1.5rem; border-radius: 10px; background: #e75480; color: white; border: none; font-size: 1rem; cursor: pointer;">
-               <a href="#surprise"> Click for a Surprise!</a>
+               <a href="#surprise"> Click for quotes!</a>
             </button>
 
                 </div>
@@ -378,91 +380,23 @@ form:hover {
 
 
     <div class="Abigail" id="video" style="display: none; width: 100%; text-align: center; margin-top: 20px;">
-        <h2>Watch this special birthday video!</h2>
-    <video controls>
-        <source src="./birthday video.mp4" type="video/mp4">
-        Your browser does not support the video tag.<br>
-    </video>
+        <h2>sorry this video is only meant for Abigail!</h2>
+        <p>Click the button below to see the last message</p>
     <button onclick="showN()">Click for last message</button>
     </div>
 
 
     <div class="Abigail" id="N">
-        <p>
-            There is a big difference between falling in love and being in love.<br>
-            There is a big difference between infatuation and love.<br>
-            Sometimes it is just a form of love to talk to someone you might have nothing in common with and still be fascinated.<br>
-            But one thing I am sure of is that love is a beautiful journey that we embark on together<br>
-            and <strong>Cuddling with you will be perfect now</strong>.<br> Lord, our troubles
-Are so great,
-We don't know what to do;
-The price for our
-Iniquity
-Is finally coming due.
-
-The world is crumbling
-All about;
-No safe place can be found.
-Right is wrong,
-Wrong is right;
-The change is quite profound.
-
-Lord, we need
-Your guiding light
-To lead us out of here;
-We'll focus on
-Your Word, and prayer,
-To take away our fear.
-
-Temptations of
-This dying world
-We'll rule out and let go;
-Give our burdens
-All to you,
-Shed all worldly woe.
-
-That's how we'll
-Get through this, Lord,
-Fixed on heaven above,
-Assured of your
-protection, help,
-And everlasting love.
-
-This Christian poem tells of Jesus' never-failing support for us. It's a Christian inspirational poem that's also a Christian rhyme.
-
-You’re Always There for Me
-
-When the world comes crashing in
-And chaos rules my mind,
-I turn my heart to you, Lord,
-And pure, sweet peace I find.
-
-You lift me out of trouble
-You comfort me in pain;
-You nourish, heal and cleanse me,
-Like cool, refreshing rain.
-
-In times of joy and bliss,
-When things are going right,
-You lift me even higher,
-And fill me with delight.
-
-You listen to my prayers;
-You hear my every plea;
-I’m safe because I know
-You’re always there for me.
-
+        <p>OOPS!!  this page is also meant for Abigail Alone thank you
+            
+            <h1>kindely leave a birthday message below thank you.</h1>
         </p>
-        <br><br><br>
         <!-- Message Box Section -->
-<div class="Abigail" id="message-box" style="display: flex; flex-direction: column; align-items: center; margin: 2rem 0;">
-    <h2>Leave a Birthday Message for Abigail</h2>
     <form action="https://formspree.io/f/myzjbjqz" method="POST" style="width: 100%; max-width: 400px;">
         <textarea name="message" rows="5" placeholder="Type your message here..." required style="width: 100%; border-radius: 10px; padding: 1rem; font-size: 1rem; margin-bottom: 1rem;"></textarea>
         <button type="submit">Send Message</button>
     </form>
 </div>
-    </div>
     <!-- Confetti animation -->
     <canvas id="confetti" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999;"></canvas>
 
@@ -579,6 +513,13 @@ function showN() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Make the message box visible by default
+    var messageBox = document.getElementById('message-box');
+    if (messageBox) {
+        messageBox.style.display = 'flex';
+    }
+});
 // Heart animation
 function createHeart() {
     const heart = document.createElement('div');
@@ -641,6 +582,11 @@ window.addEventListener('resize', () => {
     W = window.innerWidth; H = window.innerHeight;
     canvas.width = W; canvas.height = H;
 });
+
+document.body.addEventListener('click', function() {
+    const audio = document.querySelector('audio');
+    if (audio) audio.muted = false;
+}, { once: true });
 
 // Smooth background shuffle
 function shuffleBackground() {
